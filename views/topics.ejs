@@ -1,0 +1,27 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  
+  <div class="blogs content">  
+    
+    <h2>Topics</h2>
+
+    <% if (topic.length > 0) { %>
+      <% topic.forEach(topics => { %>
+        <a class="single" href="/topics/<%= topics.name %>">
+          <h3 class="title"><%= topics.name %></h3>
+          
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no Topics to display...</p>
+    <% } %>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>
