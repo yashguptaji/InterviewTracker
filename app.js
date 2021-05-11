@@ -1,10 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const blogRoutes = require('./routes/blogRoutes');
 const cookieParser = require('cookie-parser');
 const {requireAuth,checkUser} = require('./middleware/authMiddleware');
-const {checkAdmin} = require('./middleware/adminMiddleware');
+const {checkAdmin,requireAdmin} = require('./middleware/adminMiddleware');
 
 
 // express app
@@ -36,15 +35,24 @@ app.use((req, res, next) => {
   res.locals.path = req.path;
   next();
 });
-
+// app.use(express.static(__dirname + '/public'));
 // routes
 app.get('*',checkUser);
 app.get('*',checkAdmin);
-app.get('/', requireAuth,(req, res) => res.redirect('/about'));
+app.use("/admin", requireAdmin, adminRoutes);
+app.get('/',(req, res) => res.redirect('/home'));
 
 
 app.get('/about',requireAuth, (req, res) => {
   res.render('about', { title: 'About' });
+});
+
+app.get("/home", (req, res) => {
+  res.render("home", { title: "Home" });
+});
+
+app.get("/contact",requireAuth, (req, res) => {
+  res.render("contact", { title: "Contact Us" });
 });
 
 // blog routes

@@ -24,7 +24,7 @@ Topics.findOne({name:name})
     if(result_temp){
     Questions.find({topic:result_temp._id})
     .then((result)=>{
-        res.render('details',{questions:result,title:name});
+        res.render('questions',{questions:result,title:name});
     })
     .catch((err)=>{
         res.status(404).render('404',{title:"Page does not exist!"});
@@ -64,7 +64,6 @@ module.exports.addQuestion_POST = (req, res) => {
 
 
   module.exports.question_delete = (req, res) => {
-    console.log("aaa");
     var topic;
     const id = req.params.id;
     Questions.findById(id)
@@ -74,7 +73,7 @@ module.exports.addQuestion_POST = (req, res) => {
         topic = question.topic.name;
         Questions.findByIdAndDelete(id)
           .then((result) => {
-            res.json({ redirect: "/topics/" + topic });
+            res.json({ redirect: "/topics/" });
           })
           .then((result) => console.log(result))
           .catch((err) => console.log(err));
