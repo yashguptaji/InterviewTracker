@@ -43,7 +43,7 @@ app.use("/admin", requireAdmin, adminRoutes);
 app.get('/',(req, res) => res.redirect('/home'));
 
 
-app.get('/about',requireAuth, (req, res) => {
+app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
 });
 
@@ -51,7 +51,7 @@ app.get("/home", (req, res) => {
   res.render("home", { title: "Home" });
 });
 
-app.get("/contact",requireAuth, (req, res) => {
+app.get("/contact", (req, res) => {
   res.render("contact", { title: "Contact Us" });
 });
 

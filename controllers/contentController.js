@@ -73,7 +73,7 @@ module.exports.addQuestion_POST = (req, res) => {
         topic = question.topic.name;
         Questions.findByIdAndDelete(id)
           .then((result) => {
-            res.json({ redirect: "/topics/" });
+            res.json({ redirect: "/topics" });
           })
           .then((result) => console.log(result))
           .catch((err) => console.log(err));

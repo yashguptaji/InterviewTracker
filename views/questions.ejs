@@ -80,6 +80,9 @@ https://templatemo.com/tm-545-finance-business
                         <h3 class="title"><%= questions.name %></h3>
                    
                       </a>
+                      <% if(admin) { %>
+                        <a hover="green" class="delete" data-doc="<%=questions._id %>">Delete</a>
+                        <%}%>
                       
                     </div>
                   </div>
@@ -174,6 +177,20 @@ https://templatemo.com/tm-545-finance-business
           }
       }
     </script>
-
+ <script>
+ // console.log("bbb");
+const trashcans = document.querySelectorAll(".delete");
+  trashcans.forEach((trashcan) => {
+    trashcan.addEventListener("click", (e) => {
+      const endpoint = `/topics/${trashcan.dataset.doc}`;
+      console.log(endpoint);
+      fetch(endpoint, { method: "DELETE" })
+        .then((response) => response.json())
+        .then((data) => (window.location.href = data.redirect))
+        .catch((err) => console.log(err));
+    });
+  });
+    
+</script>
   </body>
 </html>
