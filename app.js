@@ -13,7 +13,7 @@ const adminRoutes= require('./routes/adminRoutes');
 const contentRoutes= require('./routes/contentRoutes');
 
 // connect to mongodb & listen for requests
-const dbURI = 'mongodb+srv://yg:test123@cluster0.qcwnw.mongodb.net/myFirstDatabase';
+const dbURI = '';
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true ,useCreateIndex: true})
   .then(result => app.listen(3000))
