@@ -16,7 +16,7 @@ const contentRoutes= require('./routes/contentRoutes');
 const dbURI = 'mongodb+srv://yg:test123@cluster0.qcwnw.mongodb.net/myFirstDatabase';
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true ,useCreateIndex: true})
-  .then(result => app.listen(process.env.PORT))
+  .then(result => app.listen(3000))
   .catch(err => console.log(err));
 
 // register view engine
