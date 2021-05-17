@@ -8,7 +8,7 @@ const requireAuth = (req,res,next) =>{
     //check json web token exists and is verified
      if(token)
      {
-        jwt.verify( token,'yash is op', (err,decodedToken)=>{
+        jwt.verify( token,'', (err,decodedToken)=>{
             if(err){
                 console.log(err.message);
                 res.redirect('/login');
