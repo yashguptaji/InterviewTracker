@@ -38,7 +38,7 @@ return errors;
 
 const maxAge=3*24*60*60;   //value of 3 day in seconds
 const createToken = (id) =>{
-    return jwt.sign({id},'yash is op',{
+    return jwt.sign({id},'',{
         expiresIn: maxAge
     });
 };
