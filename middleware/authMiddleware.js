@@ -30,7 +30,7 @@ const checkUser = (req,res,next)=>{
 const token=req.cookies.jwt;
 if(token)
 {
-    jwt.verify( token,'yash is op', async(err,decodedToken)=>{
+    jwt.verify( token,'', async(err,decodedToken)=>{
         if(err){
             console.log(err.message);
             res.locals.user = null;
