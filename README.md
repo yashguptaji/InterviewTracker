@@ -1,5 +1,5 @@
 # Interview Tracker
-[Try Here!] (https://interviewpreptracker.herokuapp.com/home)
+[Try Here!](https://interviewpreptracker.herokuapp.com/home)
 
 
 Interview Tracker - Project by Coding Club IIT Guwahati.
