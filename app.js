@@ -7,6 +7,7 @@ const { checkAdmin, requireAdmin } = require("./middleware/adminMiddleware");
 
 // express app
 const app = express();
+
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const contentRoutes = require("./routes/contentRoutes");
